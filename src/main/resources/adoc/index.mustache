@@ -1,0 +1,105 @@
+= {{{appName}}}
+{{#headerAttributes}}
+{{infoEmail}}
+{{{version}}}
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, {{appName}}
+:specDir: {{specDir}}
+:snippetDir: {{snippetDir}}
+:generator-template: v1 2019-12-20
+:info-url: {{infoUrl}}
+:app-name: {{appName}}
+{{/headerAttributes}}
+
+[CAUTION]
+====
+Ce document est généré par un process automatiquement.
+====
+
+== Introduction
+
+{{#specinclude}}specs/{{appName}}.adoc{{/specinclude}}
+
+{{#hasServers}}
+== Serveurs
+
+[cols="1,3"]
+|===
+| Server | URL
+
+
+{{#servers}}
+| {{description}}
+| +++<code>{{url}}</code>+++
+{{/servers}}
+|===
+{{/hasServers}}
+
+{{#hasAuthMethods}}
+== Access
+
+{{#authMethods}}
+{{#isBasic}}
+{{#isBasicBasic}}* *HTTP Basic* Authentication _{{{name}}}_{{/isBasicBasic}}
+{{#isBasicBearer}}* *Bearer* Authentication {{/isBasicBearer}}
+{{/isBasic}}
+{{#isOAuth}}* *OAuth*  AuthorizationUrl: _{{authorizationUrl}}_, TokenUrl:   _{{tokenUrl}}_ {{/isOAuth}}
+{{#isApiKey}}* *APIKey* KeyParamName:     _{{keyParamName}}_,     KeyInQuery: _{{isKeyInQuery}}_, KeyInHeader: _{{isKeyInHeader}}_{{/isApiKey}}
+{{/authMethods}}
+
+{{/hasAuthMethods}}
+
+== Endpoints
+
+{{#apiInfo}}
+{{#apis}}
+{{#operations}}
+
+[.{{baseName}}]
+=== {{baseName}}
+
+{{#operation}}
+
+[.{{nickname}}]
+==== {{nickname}}
+
+{{{summary}}}
+
+{{{notes}}}
+
+{{#specinclude}}specs/pre-{{nickname}}.adoc{{/specinclude}}
+
+`+++<code style="background: #F6F8FA;border-radius: 5px; padding: 15px 15px 15px 15px; border-style: solid;border-color: #d0d4d9; border-width: 1px">{{#vendorExtensions}}{{#x-isPost}}<span style="font-weight: bold; background: #4ACB90; color: white; border-radius: 5px; padding: 0px 5px 0px 5px ">{{httpMethod}}</span>{{/x-isPost}}{{#x-isPut}}<span style="font-weight: bold; background: #FBA12F; color: white; border-radius: 5px; padding: 0px 5px 0px 5px ">{{httpMethod}}</span>{{/x-isPut}}{{#x-isDelete}}<span style="font-weight: bold; background: #F93F3E; color: white; border-radius: 5px; padding: 0px 5px 0px 5px ">{{httpMethod}}</span>{{/x-isDelete}}{{#x-isGet}}<span style="font-weight: bold; background: #61AFFE; color: white; border-radius: 5px; padding: 0px 5px 0px 5px ">{{httpMethod}}</span>{{/x-isGet}}{{/vendorExtensions}} {{path}}</code>+++`
+
+===== -> Paramètres
+{{> params}}
+
+===== <- Réponses
+
+{{#hasProduces}}
+{{#produces}}+++<span style="background: #CDD9E5; border-radius: 5px; padding: 0px 5px 0px 5px ">{{{mediaType}}}</span>+++{{^-last}}, {{/-last}}{{/produces}}
+{{/hasProduces}}
+
+[cols="2,3,1"]
+|===
+| Code | Type| Description
+
+
+{{#responses}}
+| {{#isDefault}}Ou sinon{{/isDefault}}{{^isDefault}}{{code}}{{/isDefault}}
+| {{^simpleType}}{{dataType}}[<<{{baseType}}>>]{{/simpleType}} {{#simpleType}}<<{{dataType}}>>{{/simpleType}}
+| {{message}}
+{{/responses}}
+|===
+
+{{#specinclude}}specs/post-{{nickname}}.adoc{{/specinclude}}
+
+{{/operation}}
+{{/operations}}
+{{/apis}}
+{{/apiInfo}}
+
+{{> model}}
