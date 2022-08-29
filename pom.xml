@@ -4,7 +4,7 @@
 
   <groupId>com.codesseur</groupId>
   <artifactId>open-api-asciidoc-documentation</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3-SNAPSHOT</version>
   <name>open-api-asciidoc-documentation</name>
   <description>An open api asciidoc documentation generator</description>
   <url>https://github.com/codesseur/open-api-asciidoc-documentation</url>
@@ -41,7 +41,7 @@
     <connection>scm:git:git://github.com/codesseur/open-api-asciidoc-documentation.git</connection>
     <developerConnection>scm:git:git@github.com:codesseur/open-api-asciidoc-documentation.git</developerConnection>
     <url>https://github.com/codesseur/open-api-asciidoc-documentation</url>
-    <tag>open-api-asciidoc-documentation-0.0.2</tag>
+    <tag>open-api-asciidoc-documentation-0.0.0</tag>
   </scm>
 
   <distributionManagement>
