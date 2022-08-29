@@ -10,15 +10,16 @@
 {{unescapedDescription}}
 
 [.fields-{{classname}}]
-[cols="2,1,4"]
+[cols="2,1,1,4"]
 |===
-| Nom| Type| Description
+| Nom| Type| Obligatoire| Description
 
 
 {{#vars}}
 | +++<span style="background: #EFF1F2; border-radius: 10px; padding: 0px 5px 0px 5px;border-style: solid;border-color: #d0d4d9; border-width: 1px ">{{baseName}}</span>+++
 | {{dataType}}{{#isContainer}} de <<{{complexType}}>>{{/isContainer}}
-| {{#required}}*Obligatoire*. {{/required}}{{#description}}{{this}} +{{/description}}{{#isEnum}}
+| {{#required}}*Oui*{{/required}}{{^required}}*Non*{{/required}}
+| {{#description}}{{this}} +{{/description}}{{#isEnum}}
   Peut prendre les valeurs: {{#_enum}}+++<code style="background: #EFF1F2; border-radius: 5px; padding: 0px 5px 0px 5px ">{{this}}</code>+++{{^-last}}, {{/-last}}{{/_enum}} +{{/isEnum}}{{#example}}
   Exemple: +++<code style="background: #EFF1F2; border-radius: 5px; padding: 0px 5px 0px 5px ">{{this}}</code>+++{{/example}}{{/vars}}
 |===

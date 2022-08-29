@@ -216,6 +216,7 @@ public class AsciidocCodegen extends DefaultCodegen implements CodegenConfig {
 
     this.includeSpecMarkupLambda = new IncludeMarkupLambda(specDir);
     additionalProperties.put("specinclude", this.includeSpecMarkupLambda);
+    additionalProperties.put("statuscode", new StatusCodeLambda());
 
     String snippetDir = this.additionalProperties.get(SNIPPET_DIR) + "";
     if (!Files.isDirectory(Paths.get(snippetDir))) {
